@@ -1,0 +1,528 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: #0f1423;
+}
+
+/* ================= NAVBAR ================= */
+#nav-bar {
+  width: 100%;
+  background: rgb(43, 49, 56);
+}
+
+.nav-inner {
+  max-width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-self: center;
+  margin-left: 5px;
+
+  padding: 6px 20px 6px 0; /* no left padding */
+}
+
+
+#logo {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+
+  transform: scale(1.4);
+  transform-origin: left center;
+
+  margin-right: 24px; /* space after logo */
+}
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  flex: 1;                 /* allows center alignment */
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+
+.nav-links p,
+.nav-links a {
+  color: #e5e7eb;
+  font-size: 16px;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    width: 520px;
+    height: 44px;
+
+    background: #1f262d;
+    border-radius: 12px;
+
+    padding: 0 10px;
+    gap: 8px;
+
+    border: 1px solid #2f3a44;
+}
+
+/* Country input */
+#country-input {
+    width: 140px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #e5e7eb;
+    font-size: 14px;
+}
+
+/* Divider line */
+#country-input {
+    border-right: 1px solid #374151;
+    padding-right: 8px;
+}
+
+/* City input */
+#search-input {
+    flex: 1;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #e5e7eb;
+    font-size: 14px;
+    padding-left: 6px;
+}
+
+/* Button INSIDE box */
+#search-btn {
+    background-color: #1f262d;   /* dark filled box */
+    border: 1px solid #2f3a44;   /* subtle border */
+
+    color: #38bdf8;              /* blue icon */
+    font-size: 18px;
+
+    padding: 2px 5px;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+p {
+    font-size: 16px;   /* text size */
+}
+
+p span {
+    font-size: 10px;   /* red circle size */
+}
+
+
+.search-box p {
+    color: #38bdf8;              /* icon color */
+}
+
+/* Placeholder color */
+#country-input::placeholder,
+#search-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Focus effect like AQI */
+.search-box:focus-within {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+}
+
+
+.live-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    padding-right: 20px;
+   
+}
+
+/* vertical divider */
+.live-text::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 18px;
+    width: 1px;
+    background: #6b7280; /* AQI-style divider color */
+}
+
+@media (max-width: 640px) {
+
+  /* NAVBAR STACK FIX */
+  .nav-inner {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    margin-left: 0;
+  }
+
+  /* Center logo */
+  #logo {
+    margin: 0;
+    transform: scale(1.2);
+  }
+
+  /* Stack nav links cleanly */
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Search box mobile friendly */
+  .search-box {
+    width: 100%;
+    max-width: 95%;
+    height: 42px;
+  }
+
+  #country-input {
+    width: 35%;
+    font-size: 13px;
+  }
+
+  #search-input {
+    width: 45%;
+    font-size: 13px;
+  }
+
+  #search-btn {
+    padding: 4px 8px;
+    font-size: 16px;
+  }
+
+  /* Live + Contact row */
+  .nav-links p,
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .live-text {
+    padding-right: 0;
+  }
+
+  .live-text::after {
+    display: none; /* remove divider on mobile */
+  }
+
+  /* Current weather alignment */
+  .current-weather {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  /* Side cards */
+  .side-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ================= DASHBOARD ================= */
+.weather-dashboard {
+  width: 100%;
+   
+}
+
+.dashboard-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+/* ================= MAIN CARD ================= */
+.main-card {
+ background-color: #df8c19; /* same background */
+    box-shadow: inset 0 100px 50px rgba(73, 0, 0, 0.25);
+  border-radius: 24px;
+  padding: 24px;
+    position: relative;
+}
+
+/* header */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header h3 {
+    font-size: 40px;
+}
+
+.card-header span {
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+}
+
+
+#logo-icon {
+  height: 95px;
+  width: auto;
+  object-fit: contain;
+
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+
+  transform: scale(1.4);
+  opacity: 0.9;
+}
+
+
+
+.unit-toggle button {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.unit-toggle .active {
+  background: #ffffff;
+  border-radius: 20px;
+  
+}
+
+/* current weather */
+.current-weather {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 24px 0;
+}
+
+.temp-icon {
+  font-size: 100px;
+}
+
+.temp-info h1 {
+  font-size: 86px;
+}
+
+/* daily */
+.daily-forecast {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.day {
+  min-width: 90px;
+  padding: 12px;
+  border-radius: 18px;
+  background: #fff;
+  text-align: center;
+}
+
+.day.active {
+  background: #ffe4c4;
+}
+
+/* hourly */
+.hourly-forecast {
+  display: flex;
+  gap: 20px;
+  font-size: 14px;
+  overflow-x: auto;
+}
+
+/* ================= SIDE CARDS ================= */
+.side-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+}
+.small-card h4 {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.small-card {
+  padding: 20px;
+  border-radius: 20px;
+  color: #111;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease;
+}
+
+
+
+.small-card:hover {
+  transform: translateY(-4px);
+}
+
+
+/* Visibility – clear sky */
+.visibility-card {
+  background-color: #fffdfa; /* same background */
+    box-shadow: inset 0 100px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* Wind – air / motion */
+.wind-card {
+  background-color: #0059a2; /* same background */
+    box-shadow: inset 0 70px 50px rgba(37, 2, 2, 0.25);
+}
+
+/* Pressure – atmosphere */
+.pressure-card {
+  background-color: #aa6403; /* same background */
+    box-shadow: inset 0 100px 50px rgba(73, 0, 0, 0.25);
+}
+
+
+
+
+/* Humidity – moisture */
+.humidity-card {
+ background-color: #177500; /* same background */
+    box-shadow: inset 0 50px 30px rgba(37, 2, 2, 0.25);
+}
+
+/* AQI – health related */
+.aqi-card {
+    
+  background-color: #bb2525; /* same background */
+    box-shadow: inset 0 100px 10px rgba(37, 2, 2, 0.25);
+}
+
+/* UV – radiation */
+.uv-card {
+ background-color: #027286; /* same background */
+    box-shadow: inset 0 70px 50px rgba(37, 2, 2, 0.25);
+}
+
+
+
+.small-card h4 {
+  font-size: 14px;
+  color: gray;
+}
+
+.small-card h2 {
+  margin: 8px 0;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* tablet */
+@media (max-width: 1024px) {
+  .dashboard-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .side-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width: 640px) {
+
+  .nav-inner {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #search-input {
+    width: 70vw;
+  }
+
+  .current-weather {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .side-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* popup overlay */
+.contact-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  
+}
+
+/* show popup when targeted */
+.contact-popup:target {
+  display: flex;
+}
+
+/* popup box */
+.popup-content {
+  background: #fff;
+  padding: 22px 26px;
+  border-radius: 14px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+/* close button */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+#footer {
+    text-align: center;
+ justify-content: bottom;
+    padding: 12px;
+    background: #1f262d;
+    color: #e5e7eb;
+}

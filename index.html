@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav id="nav-bar">
+        <div class="nav-inner">
+            <img id="logo" src="image/logo.png" alt="Weather Logo">
+
+            <div class="nav-links">
+                
+
+                <div class="search-box">
+                    <button id="search-btn">🔍︎</button>
+                    <input type="text" id="country-input" placeholder="Search country...">
+                    <input type="text" id="search-input" placeholder="Search city...">
+                    <p>𖦏</p>
+                    
+                </div>
+                <p class="live-text"><span>🔴</span> Live Weather Forecast</p>
+
+                <a href="#contact-popup">Contact</a>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= WEATHER DASHBOARD ================= -->
+    <div class="weather-dashboard">
+        <div class="dashboard-inner">
+
+            <!-- ===== LEFT MAIN CARD ===== -->
+            <div class="main-card">
+
+                <!-- Header -->
+                <div class="card-header">
+                    <div>
+                        <h3>Delhi <span>12:32 PM</span></h3>
+                        <p>Updated a few minutes ago</p>
+                    </div>
+
+                    <div class="unit-toggle">
+                        
+                        <button class="active">°C</button>
+                    </div>
+                    
+                </div>
+
+                <!-- Current Weather -->
+                <div class="current-weather">
+                    <div class="temp-icon">☀️</div>
+
+                    <div class="temp-info">
+                        <h1>20°c</h1>
+                        <p>Sunny</p>
+                        <span>H 21° • L 10°</span>
+                    </div>
+                     <img id="logo-icon" src="image/logo.png" alt="Weather Logo">
+                </div>
+               
+
+                <!-- Daily Forecast -->
+              
+
+
+            </div>
+
+            <!-- ===== RIGHT SIDE CARDS ===== -->
+<div class="side-cards">
+
+  <div class="small-card visibility-card">
+    <h4>Visibility</h4>
+    <h2 id="visibility">-- km</h2>
+    <p id="visibility-text">--</p>
+  </div>
+
+  <div class="small-card wind-card">
+    <h4>Wind</h4>
+    <h2 id="wind">-- km/h</h2>
+    <p id="wind-text">--</p>
+  </div>
+
+  <div class="small-card pressure-card">
+    <h4>Pressure</h4>
+    <h2 id="pressure">-- mb</h2>
+    <p>Atmospheric</p>
+  </div>
+
+  <div class="small-card humidity-card">
+    <h4>Humidity</h4>
+    <h2 id="humidity">--%</h2>
+    <p>Normal</p>
+  </div>
+
+  <div class="small-card aqi-card">
+    <h4>AQI</h4>
+    <h2 id="aqi">--</h2>
+    <p id="aqi-text">--</p>
+  </div>
+
+  <div class="small-card uv-card">
+    <h4>UV</h4>
+    <h2 id="uv">--</h2>
+    <p id="uv-text">--</p>
+  </div>
+
+</div>
+
+
+
+
+        </div>
+    </div>
+
+  <div id="contact-popup" class="contact-popup">
+  <div class="popup-content">
+    <a href="#" class="close-btn">&times;</a>
+
+    <h3>Made by Devesh Sharma</h3>
+    <p><strong>📞 Phone:</strong> 9625745248</p>
+    <p><strong>📧 Email:</strong> deveshsharma9958@gmail.com</p>
+  </div>
+</div>
+
+
+<footer id="footer">
+    <p>© 2024 Weather Forecast. Developed and Designed by Devesh Sharma.</p>
+</footer>
+
+    <!-- ================= SCRIPT ================= -->
+    <script src="script.js"></script>
+
+
+</body>
+</html>
